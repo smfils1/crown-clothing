@@ -1,10 +1,13 @@
 import React from "react";
+import { withRouter } from "react-router-dom";
+
 
 import "./CollectionListItem.scss";
 
-const CollectionListItem = ({ title, imageUrl, size }) => {
+const CollectionListItem = ({ title, imageUrl, size, linkUrl, history, match }) => {
+
     return (
-        <div className={`${size} menu-item`}>
+        <div className={`${size} menu-item`} onClick={() => history.push(`${match.url}${linkUrl}`)}>
             <div
                 style={{
                     backgroundImage: `url(${imageUrl})`
@@ -19,4 +22,4 @@ const CollectionListItem = ({ title, imageUrl, size }) => {
     );
 };
 
-export default CollectionListItem;
+export default withRouter(CollectionListItem);

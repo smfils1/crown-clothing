@@ -8,7 +8,7 @@ const CollectionList = ({collections}) => {
 
     return (
         <div className="directory-menu" >
-            {collections.map(({id, title, imageUrl, size}) => <CollectionListItem  key={id} title={title} imageUrl={imageUrl} size={size}/>)}
+            {collections.map(({id, ...collectionItemProps}) => <CollectionListItem  key={id} {...collectionItemProps}/>)}
         </div>
     )
 }

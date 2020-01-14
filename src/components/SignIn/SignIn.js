@@ -1,11 +1,10 @@
 import React, { Component } from "react";
 
-import Input from "../Input/Input"
-import Button from "../Button/Button"
+import Input from "../Input/Input";
+import Button from "../Button/Button";
 
-import {signInWithGoogle} from "../../firebase/utils"
-import  "./SignIn.scss"
-
+import { signInWithGoogle } from "../../firebase/utils";
+import "./SignIn.scss";
 
 export class SignIn extends Component {
     state = {
@@ -31,10 +30,10 @@ export class SignIn extends Component {
     render() {
         return (
             <div className="sign-in">
-                <h1>I already have an account</h1>
-                <span>Sign In with your email & password</span>
+                <h2>I already have an account</h2>
+                <span>Sign in with your email and password</span>
 
-                <form>
+                <form onSubmit={this.handleSubmit}>
                     <Input
                         type="email"
                         label="email"
@@ -53,8 +52,14 @@ export class SignIn extends Component {
                         required
                         handleChange={this.handleInputChange}
                     />
-                    <Button type="submit" >Sign In</Button>
-                    <Button type="submit" onClick={signInWithGoogle } isGoogleSignIn>Sign in With Google</Button>
+                    <Button type="submit">Sign In</Button>
+                    <Button
+                        type="submit"
+                        onClick={signInWithGoogle}
+                        isGoogleSignIn
+                    >
+                        Sign in With Google
+                    </Button>
                 </form>
             </div>
         );

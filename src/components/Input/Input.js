@@ -2,7 +2,7 @@ import React from "react";
 
 import "./Input.scss";
 
-const Input = ({ handleChange, label, ...otherProps }) => {
+const Input = ({ handleChange, label, id, ...otherProps }) => {
     return (
         <div className="group">
             <input
@@ -15,7 +15,7 @@ const Input = ({ handleChange, label, ...otherProps }) => {
                     className={`${
                         otherProps.value.length ? "shrink" : ""
                     } form-input-label`}
-                    htmlFor={label}
+                    htmlFor={id}
                 >
                     {label}
                 </label>

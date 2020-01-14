@@ -51,4 +51,6 @@ export default firebase;
 export const auth = firebase.auth();
 export const firestore = firebase.firestore();
 export const signInWithGoogle = () => auth.signInWithPopup(provider);
+export const signInWithEmail = (email, password) => auth.signInWithEmailAndPassword(email, password);
 export {createUserProfileDoc};
+

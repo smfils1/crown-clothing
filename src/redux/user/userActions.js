@@ -1,8 +1,13 @@
+const types = {
+    SET_CURRENT_USER:"SET_CURRENT_USER"
+}
+
 const setCurrentUser = user => ({
-    type: "SET_CURRENT_USER",
+    type: types.SET_CURRENT_USER,
     payload: user
 })
 
 export {
-    setCurrentUser
+    setCurrentUser,
+    types
 }

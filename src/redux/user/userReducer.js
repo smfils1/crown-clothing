@@ -1,3 +1,5 @@
+import {types} from "./userActions"
+
 const initialState = {
     currentUser:null
 }
@@ -5,7 +7,7 @@ const initialState = {
 export default (state = initialState, { type, payload }) => {
     switch (type) {
 
-    case "SET_CURRENT_USER":
+    case types.SET_CURRENT_USER:
         return { ...state, currentUser:payload }
 
     default:

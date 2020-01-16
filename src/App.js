@@ -11,7 +11,7 @@ import Header from "./components/Header/Header";
 
 import { auth, createUserProfileDoc } from "./firebase/utils";
 
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, Redirect } from "react-router-dom";
 
 class App extends Component {
     unsubscribeFromAuth = null;
@@ -49,7 +49,7 @@ class App extends Component {
                 <Switch>
                     <Route exact path="/" component={HomePage} />
                     <Route path="/shop" component={ShopPage} />
-                    <Route path="/signin" component={SignInUpPage} />
+                    <Route path="/signin" render={() => this.props.currentUser ? <Redirect to="/" /> : <SignInUpPage />} />
                 </Switch>
             </div>
         );
@@ -58,4 +58,8 @@ class App extends Component {
 const mapDispatchToProps = dispatch => ({
     setCurrentUser: user => dispatch(setCurrentUser(user))
 });
-export default connect(null, mapDispatchToProps)(App);
+const mapStateToProps = state => ({
+    currentUser:state.user.currentUser
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
